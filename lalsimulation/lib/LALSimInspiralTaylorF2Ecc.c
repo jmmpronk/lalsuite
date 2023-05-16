@@ -77,8 +77,8 @@ int XLALSimInspiralTaylorF2CoreEcc(
         const REAL8 phi_ref,                   /**< reference orbital phase (rad) */
         const REAL8 m1_SI,                     /**< mass of companion 1 (kg) */
         const REAL8 m2_SI,                     /**< mass of companion 2 (kg) */
-        const REAL8 S1z,
-        const REAL8 S2z,
+        const REAL8 S1z,                        /**<  z component of the spin of companion 1 */
+        const REAL8 S2z,                        /**<  z component of the spin of companion 2 */
         const REAL8 f_ref,                     /**< Reference GW frequency (Hz) - if 0 reference point is coalescence */
 	const REAL8 shft,		       /**< time shift to be applied to frequency-domain phase (sec)*/
         const REAL8 r,                         /**< distance of source (m) */
@@ -318,7 +318,7 @@ int XLALSimInspiralTaylorF2CoreEcc(
         /* Eccentricity terms in phasing */
         if( eccentricity > 0 ) {
           ref_phasing += eccentricityPhasing_F2(vref, v_ecc_ref, eccentricity, eta, ecc_order);
-          ref_phasing += eccentricitySpinPhasingF2(v, S1z, S2z, eccentricity, eta);
+          ref_phasing += eccentricitySpinPhasing_F2(vref, S1z, S2z, eccentricity, eta);
         }
 
         ref_phasing /= v5ref;
@@ -366,7 +366,7 @@ int XLALSimInspiralTaylorF2CoreEcc(
         /* Eccentricity terms in phasing */
         if( eccentricity > 0 ) {
           phasing += eccentricityPhasing_F2(v, v_ecc_ref, eccentricity, eta, ecc_order);
-          phasing += eccentricitySpinPhasingF2(v, S1z, S2z, eccentricity, eta);
+          phasing += eccentricitySpinPhasing_F2(v, S1z, S2z, eccentricity, eta);
         }
         phasing /= v5;
 

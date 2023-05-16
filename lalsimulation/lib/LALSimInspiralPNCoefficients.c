@@ -2750,13 +2750,13 @@ XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(
 }
 
 static REAL8 UNUSED
-eccentricitySpinPhasing_F2(REAL8 v, REAL8 ch1L, REAL8 ch2L, REAL8 ecc, REAL8 eta)
+eccentricitySpinPhasing_F2(REAL8 v, REAL8 chi1L, REAL8 chi2L, REAL8 ecc, REAL8 eta)
 {
     REAL8 phasing = 0.0;
-    REAL8 global_factor = (3.0 / 128.0 / eta)*ecc*ecc
+    REAL8 global_factor = (3.0 / 128.0 / eta) *ecc*ecc
 
-    phasing += (XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m1M) * chi1L + XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m2M) * ch2L
-    + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m1M) * chi1L + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m2M) * ch2L) *v*v*v
+    phasing += (XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m1M) * chi1L + XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m2M) * chi2L
+    + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m1M) * chi1L + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m2M) * chi2L) *v*v*v
 
     return phasing*global_factor
 }
