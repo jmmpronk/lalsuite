@@ -318,7 +318,7 @@ int XLALSimInspiralTaylorF2CoreEcc(
         /* Eccentricity terms in phasing */
         if( eccentricity > 0 ) {
           ref_phasing += eccentricityPhasing_F2(vref, v_ecc_ref, eccentricity, eta, ecc_order);
-          ref_phasing += eccentricitySpinPhasing_F2(vref, S1z, S2z, eccentricity, eta);
+          ref_phasing += eccentricitySpinPhasing_F2(vref, v_ecc_ref, m1, m2, S1z, S2z, eccentricity, eta);
         }
 
         ref_phasing /= v5ref;
@@ -366,7 +366,7 @@ int XLALSimInspiralTaylorF2CoreEcc(
         /* Eccentricity terms in phasing */
         if( eccentricity > 0 ) {
           phasing += eccentricityPhasing_F2(v, v_ecc_ref, eccentricity, eta, ecc_order);
-          phasing += eccentricitySpinPhasing_F2(v, S1z, S2z, eccentricity, eta);
+          phasing += eccentricitySpinPhasing_F2(v, v_ecc_ref, m1, m2, S1z, S2z, eccentricity, eta);
         }
         phasing /= v5;
 
