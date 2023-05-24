@@ -2670,6 +2670,8 @@ eccentricityPNCoeffs_F2(REAL8 eta, REAL8 eccPNCoeffs[LAL_MAX_ECC_PN_ORDER+1][LAL
 static REAL8 UNUSED
 eccentricityPhasing_F2(REAL8 v, REAL8 v0, REAL8 ecc, REAL8 eta, INT4 ecc_order)
 {
+  printf("test 0");
+
   static REAL8 v0_power[LAL_MAX_ECC_PN_ORDER+1];
   /* following code is not efficient in memory usage, need to be improved later */
   static REAL8 eccPNCoeffs[LAL_MAX_ECC_PN_ORDER+1][LAL_MAX_ECC_PN_ORDER+1][LAL_MAX_ECC_PN_ORDER+1]; // we want to calculate just one time
@@ -2746,6 +2748,7 @@ XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(
     REAL8 mByM
 )
 {
+    printf("test 2");
     return  mByM * (11467. / 1020. - 95581. / 3060. * mByM);
 }
 
@@ -2754,7 +2757,9 @@ XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(
 
 static REAL8 UNUSED
 eccentricitySpinPhasing_F2(REAL8 v, REAL8 v0, REAL8 m1, REAL8 m2, REAL8 S1z, REAL8 S2z, REAL8 ecc, REAL8 eta)
-{
+{      
+    printf("test 1");
+
     const REAL8 mtot = m1 + m2;
     const REAL8 m1M = m1 / mtot;
     const REAL8 m2M = m2 / mtot;
@@ -2764,5 +2769,6 @@ eccentricitySpinPhasing_F2(REAL8 v, REAL8 v0, REAL8 m1, REAL8 m2, REAL8 S1z, REA
     phasing += ((XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m1M) * S1z + XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m2M) * S2z) * pow(v0 / v, 28.0 / 3.0)
         + (XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m1M) * S1z + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m2M) * S2z) * pow(v0 / v, 19.0 / 3.0)) * v * v * v;
 
+    printf("test 3");
     return phasing * global_factor;
 }
