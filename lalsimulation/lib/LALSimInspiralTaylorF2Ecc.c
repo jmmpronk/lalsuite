@@ -537,7 +537,7 @@ int XLALSimInspiralTaylorF2Ecc(
     /* phasing coefficients */
     PNPhasingSeries pfa;
     XLALSimInspiralPNPhasing_F2(&pfa, m1, m2, S1z, S2z, S1z*S1z, S2z*S2z, S1z*S2z, p);
-    ret = XLALSimInspiralTaylorF2CoreEcc(&htilde, freqs, phi_ref, m1_SI, m2_SI, S1z, S2z, 
+    ret = XLALSimInspiralTaylorF2CoreEcc(&htilde, freqs, phi_ref, m1, m2, S1z, S2z, 
                                       f_ref, shft, r, eccentricity, p, &pfa);
 
     XLALDestroyREAL8Sequence(freqs);
