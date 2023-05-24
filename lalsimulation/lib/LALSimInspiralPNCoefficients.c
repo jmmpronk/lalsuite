@@ -2729,34 +2729,3 @@ eccentricityPhasing_F2(REAL8 v, REAL8 v0, REAL8 ecc, REAL8 eta, INT4 ecc_order)
   //fprintf(stdout, "eccentricityPhasing_F2 phasing = %g, global_factor = %g, ecc_order = %d, ecc = %g\n", phasing, global_factor, ecc_order, ecc);
   return phasing*global_factor;
 }
-
-/* eccentric spin term corrections
-*/
-
-static REAL8 UNUSED
-XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(
-    REAL8 mByM
-)
-{
-    return  mByM * (785. / 258. + 203315. / 26316. * mByM);
-}
-
-static REAL8 UNUSED
-XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(
-    REAL8 mByM
-)
-{
-    return  mByM * (11467. / 1020. - 95581. / 3060. * mByM);
-}
-
-static REAL8 UNUSED
-eccentricitySpinPhasing_F2(REAL8 v, REAL8 ch1L, REAL8 ch2L, REAL8 ecc, REAL8 eta)
-{
-    REAL8 phasing = 0.0;
-    REAL8 global_factor = (3.0 / 128.0 / eta)*ecc*ecc
-
-    phasing += (XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m1M) * chi1L + XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(m2M) * ch2L
-    + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m1M) * chi1L + XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(m2M) * ch2L) *v*v*v
-
-    return phasing*global_factor
-}
