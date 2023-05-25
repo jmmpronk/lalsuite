@@ -2670,6 +2670,8 @@ eccentricityPNCoeffs_F2(REAL8 eta, REAL8 eccPNCoeffs[LAL_MAX_ECC_PN_ORDER+1][LAL
 static REAL8 UNUSED
 eccentricityPhasing_F2(REAL8 v, REAL8 v0, REAL8 ecc, REAL8 eta, INT4 ecc_order)
 {
+
+  printf("this is the master branch");
   static REAL8 v0_power[LAL_MAX_ECC_PN_ORDER+1];
   /* following code is not efficient in memory usage, need to be improved later */
   static REAL8 eccPNCoeffs[LAL_MAX_ECC_PN_ORDER+1][LAL_MAX_ECC_PN_ORDER+1][LAL_MAX_ECC_PN_ORDER+1]; // we want to calculate just one time
