@@ -2740,7 +2740,7 @@ XLALSimInspiralTaylorF2_3PNS0EccSpinCoeff(
     REAL8 mByM
 )
 {
-    return  mByM * (785. / 258. + 203315. / 26316. * mByM);
+    return  mByM * (785. / 258. + 3862985. / 2473704. * mByM);
 }
 
 static REAL8 UNUSED
@@ -2749,7 +2749,7 @@ XLALSimInspiralTaylorF2_3PNS1EccSpinCoeff(
 )
 {
     printf("test 2");
-    return  mByM * (11467. / 1020. - 95581. / 3060. * mByM);
+    return  mByM * (-11467. / 1020. - 1816039. / 287640. * mByM);
 }
 
 /* adding eccentric spin terms to waveform phase 
