@@ -84,6 +84,7 @@ int XLALSimInspiralWaveformParamsInsertdQuadMon1(LALDict *params, REAL8 value);
 int XLALSimInspiralWaveformParamsInsertdQuadMon2(LALDict *params, REAL8 value);
 int XLALSimInspiralWaveformParamsInsertRedshift(LALDict *params, REAL8 value);
 int XLALSimInspiralWaveformParamsInsertEccentricityFreq(LALDict *params, REAL8 value);
+int XLALSimInspiralWaveformParamsInsertEccSpinTerms(LALDict* params, INT4 value);
 
 /* IMRPhenomX Parameters */
 int XLALSimInspiralWaveformParamsInsertPhenomXInspiralPhaseVersion(LALDict *params, INT4 value);
@@ -346,6 +347,7 @@ REAL8 XLALSimInspiralWaveformParamsLookupdQuadMon1(LALDict *params);
 REAL8 XLALSimInspiralWaveformParamsLookupdQuadMon2(LALDict *params);
 REAL8 XLALSimInspiralWaveformParamsLookupRedshift(LALDict *params);
 REAL8 XLALSimInspiralWaveformParamsLookupEccentricityFreq(LALDict *params);
+INT4 XLALSimInspiralWaveformParamsLookupEccSpinTerms(LALDict* params);
 INT4 XLALSimInspiralWaveformParamsLookupLscorr(LALDict *params);
 REAL8 XLALSimInspiralWaveformParamsLookupFinalFreq(LALDict *params);
 INT4 XLALSimInspiralWaveformParamsLookupOnlyFinal(LALDict *params);
@@ -562,6 +564,7 @@ int XLALSimInspiralWaveformParamsdQuadMon1IsDefault(LALDict *params);
 int XLALSimInspiralWaveformParamsdQuadMon2IsDefault(LALDict *params);
 int XLALSimInspiralWaveformParamsRedshiftIsDefault(LALDict *params);
 int XLALSimInspiralWaveformParamsEccentricityFreqIsDefault(LALDict *params);
+int XLALSimInspiralWaveformParamsEccSpinTermsIsDefault(LALDict* params);
 
 /* IMRPhenomX Parameters */
 int XLALSimInspiralWaveformParamsPhenomXInspiralPhaseVersionIsDefault(LALDict *params);

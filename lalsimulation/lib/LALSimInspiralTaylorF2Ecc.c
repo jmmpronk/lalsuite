@@ -125,6 +125,8 @@ int XLALSimInspiralTaylorF2CoreEcc(
     REAL8 pfa6 = 0.; REAL8 pfl6 = 0.;
     REAL8 pfa7 = 0.;
 
+    INT4 ESflag = XLALSimInspiralWaveformParamsLookupEccSpinTerms(p);
+
     INT4 phaseO=XLALSimInspiralWaveformParamsLookupPNPhaseOrder(p);
     switch (phaseO)
     {
@@ -318,7 +320,9 @@ int XLALSimInspiralTaylorF2CoreEcc(
         /* Eccentricity terms in phasing */
         if( eccentricity > 0 ) {
           ref_phasing += eccentricityPhasing_F2(vref, v_ecc_ref, eccentricity, eta, ecc_order);
-          ref_phasing += eccentricitySpinPhasing_F2(vref, v_ecc_ref, m1, m2, S1z, S2z, eccentricity, eta);
+          if (ESflag != 0) {
+              ref_phasing += eccentricitySpinPhasing_F2(vref, v_ecc_ref, m1, m2, S1z, S2z, eccentricity, eta);
+          }
         }
 
         ref_phasing /= v5ref;
@@ -366,7 +370,9 @@ int XLALSimInspiralTaylorF2CoreEcc(
         /* Eccentricity terms in phasing */
         if( eccentricity > 0 ) {
           phasing += eccentricityPhasing_F2(v, v_ecc_ref, eccentricity, eta, ecc_order);
-          phasing += eccentricitySpinPhasing_F2(v, v_ecc_ref, m1, m2, S1z, S2z, eccentricity, eta);
+          if (ESflag != 0) {
+              phasing += eccentricitySpinPhasing_F2(v, v_ecc, m1, m2, S1z, S2z, eccentricity, eta);
+          }
         }
         phasing /= v5;
 
