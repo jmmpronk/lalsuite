@@ -371,7 +371,7 @@ int XLALSimInspiralTaylorF2CoreEcc(
         if( eccentricity > 0 ) {
           phasing += eccentricityPhasing_F2(v, v_ecc_ref, eccentricity, eta, ecc_order);
           if (ESflag != 0) {
-              phasing += eccentricitySpinPhasing_F2(v, v_ecc, m1, m2, S1z, S2z, eccentricity, eta);
+              phasing += eccentricitySpinPhasing_F2(v, v_ecc_ref, m1, m2, S1z, S2z, eccentricity, eta);
           }
         }
         phasing /= v5;
