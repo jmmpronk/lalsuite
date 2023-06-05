@@ -125,7 +125,7 @@ int XLALSimInspiralTaylorF2CoreEcc(
     REAL8 pfa6 = 0.; REAL8 pfl6 = 0.;
     REAL8 pfa7 = 0.;
 
-    INT4 ESflag = XLALSimInspiralWaveformParamsLookupEccSpinTerms(p);
+    REAL8 ESflag = XLALSimInspiralWaveformParamsLookupEccSpinTerms(p);
 
     INT4 phaseO=XLALSimInspiralWaveformParamsLookupPNPhaseOrder(p);
     switch (phaseO)
